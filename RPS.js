@@ -23,8 +23,10 @@ function playGame(){
     }
     if (humanScore>computerScore){
         console.log("YOU ARE THE WINNERRRRRRR!!!!!!!");
-    }else{
+    }else if (humanScore<computerScore){
         console.log("YOU ARE THE LOSEERRRRRRR!!!!!!!"); 
+    }else{
+        console.log("IT IS A DRAWWWWWWWW!!!!!!!"); 
     }
 }
 
