@@ -3,23 +3,17 @@ let computerScore = 0;
 
 const button = document.querySelectorAll('button').forEach(button => 
     button.addEventListener('click', () =>{
-        const finalResult = document.createElement('div');
-        if (humanScore === 5){
-            resultCont.textContent = '';
-            finalResult.textContent = "YOU WIN THE GAMEEEEEEE!!!!!"
-            resultCont.appendChild(finalResult);
-        }else if (computerScore === 5){
-            resultCont.textContent = '';
-            finalResult.textContent = "YOU LOSE THE GAMEEEEEEE!!!!!"
-            resultCont.appendChild(finalResult); 
-        }else{
-            playRound(button.innerHTML);
-        }
+        playRound(button.innerHTML);
     })
 );
+
 const resultCont = document.querySelector('.result');
 resultCont.style.paddingTop = '21px';
+
 function playRound(userChoice){
+    if (humanScore === 5 || computerScore === 5){
+        return;
+    }
     let computerChoice = Math.floor(Math.random()*(3-1+1)+1);
     const result = document.createElement('div');
     const UserScore = document.createElement('div');
@@ -43,6 +37,18 @@ function playRound(userChoice){
     resultCont.appendChild(result);
     resultCont.appendChild(UserScore);
     resultCont.appendChild(compScore);
+
+
+    const finalResult = document.createElement('div');
+    if (humanScore === 5){
+        resultCont.textContent = '';
+        finalResult.textContent = "YOU WIN THE GAMEEEEEEE!!!!!"
+        resultCont.appendChild(finalResult);
+    }else if (computerScore === 5){
+        resultCont.textContent = '';
+        finalResult.textContent = "YOU LOSE THE GAMEEEEEEE!!!!!"
+        resultCont.appendChild(finalResult); 
+    }
 }
 
 
